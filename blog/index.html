@@ -1384,7 +1384,7 @@ footer{
         <ul>
           <li><a href="#hizmetler" class="lang-tr">9–10. Sınıf Planlaması</a><a href="#hizmetler" class="lang-en">9–10th Grade Planning</a></li>
           <li><a href="#hizmetler" class="lang-tr">Üniversite Başvurusu</a><a href="#hizmetler" class="lang-en">University Admissions</a></li>
-          <li><a href="#starup">STARup Program</a></li>
+          <li><a href="/starup/">STARup Program</a></li>
           <li><a href="#hizmetler" class="lang-tr">Yaz Programları</a><a href="#hizmetler" class="lang-en">Summer Programs</a></li>
         </ul>
       </div>
@@ -1396,7 +1396,7 @@ footer{
           <li><a href="#kabuller" class="lang-tr">Kabullerimiz</a><a href="#kabuller" class="lang-en">Acceptances</a></li>
           <li><a href="#surec" class="lang-tr">Süreç</a><a href="#surec" class="lang-en">Process</a></li>
           <li><a href="#sss">SSS / FAQ</a></li>
-          <li><a href="blog.html">Blog</a></li>
+          <li><a href="/blog/">Blog</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1441,9 +1441,18 @@ window.addEventListener('scroll', () => {
 document.addEventListener('DOMContentLoaded', () => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold:0.08, rootMargin:'0px 0px -40px 0px' });
+  }, { threshold:0.01, rootMargin:'0px 0px 0px 0px' });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 });
 </script>
+
+<script>
+window.addEventListener('load', function() {
+  document.querySelectorAll('.blog-hero .fade-in').forEach(function(el) {
+    el.classList.add('visible');
+  });
+});
+</script>
+
 </body>
 </html>
