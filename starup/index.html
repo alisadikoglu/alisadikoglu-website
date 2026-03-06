@@ -1797,7 +1797,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  // Immediately show hero elements
+  document.querySelectorAll('.s-hero .fade-in').forEach(function(el){ el.classList.add('visible'); });
+  document.querySelectorAll('.fade-in:not(.visible)').forEach(el => observer.observe(el));
   document.querySelectorAll('.modal-overlay').forEach(m => {
     m.addEventListener('click', function(e) {
       if (e.target === this) { this.classList.remove('open'); document.body.style.overflow = ''; }
@@ -1861,6 +1863,16 @@ async function submitSTARup(btn) {
   }
 }
 
+</script>
+
+
+<script>
+// Force hero elements visible immediately on load
+window.addEventListener('load', function() {
+  document.querySelectorAll('.s-hero .fade-in, .s-hero-logo-wrap.fade-in, .s-hero-content .fade-in').forEach(function(el) {
+    el.classList.add('visible');
+  });
+});
 </script>
 
 </body>
