@@ -1,0 +1,31 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.alisadikoglu.com/sitemap.xml
+
+# Block admin/private paths if they exist
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /api/
+Disallow: /_next/static/
+Disallow: /private/
+
+# Allow all major crawlers explicitly
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
