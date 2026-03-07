@@ -10,7 +10,7 @@ Ali Sadıkoğlu Global Education'ın kurumsal web sitesi. Yurt dışı üniversi
 
 - **Statik HTML/CSS/JS** — framework yok, saf vanilla
 - **Cloudflare Pages** — otomatik deploy (main branch push = canlı)
-- **Web3Forms** — form backend (email bildirimi)
+- **Web3Forms** — form backend (email bildirimi, her iki form için)
 - **Domain** — alisadikoglu.com (Cloudflare DNS, Hover kayıt)
 
 ## Klasör Yapısı
@@ -19,7 +19,7 @@ Ali Sadıkoğlu Global Education'ın kurumsal web sitesi. Yurt dışı üniversi
 /
 ├── index.html          # Ana sayfa (tüm section'lar dahil)
 ├── starup/
-│   └── index.html      # STARup program sayfası
+│   └── index.html      # STARup program sayfası + başvuru formu
 ├── blog/
 │   ├── index.html      # Blog listesi
 │   ├── 9-sinif-yurt-disi-universite/index.html
@@ -47,14 +47,14 @@ git push origin main
 
 ## Formlar
 
-İki adet başvuru formu var, ikisi de Web3Forms üzerinden çalışır:
+İki adet başvuru formu var, ikisi de Web3Forms üzerinden çalışır.
 
-| Form | Sayfa | Fonksiyon |
-|------|-------|-----------|
+| Form | Sayfa | Handler |
+|------|-------|---------|
 | Ön Görüşme | `index.html` → `#iletisim` | `submitForm()` |
-| STARup Başvuru | `starup/index.html` | `submitSTARup()` |
+| STARup Başvuru | `starup/index.html` → `#basvuru` | `submitSTARup()` |
 
-Form bildirimleri Web3Forms dashboard üzerinden yönetilir.
+Her iki form da veriyi toplayıp `api.web3forms.com/submit` endpoint'ine POST atar. Form bildirimleri Web3Forms dashboard üzerinden yönetilir.
 
 ## Dil Desteği
 
@@ -64,6 +64,6 @@ Site TR/EN çift dil içerir. Dil geçişi `lang-tr` / `lang-en` class'ları ile
 
 | Kayıt | Değer |
 |-------|-------|
-| A | `76.76.21.21` (Cloudflare Pages) |
-| CNAME www | `alisadikoglu-website.pages.dev` |
+| A `@` | `76.76.21.21` (Cloudflare Pages) |
+| CNAME `www` | `alisadikoglu-website.pages.dev` |
 | Nameservers | `bonnie.ns.cloudflare.com`, `eric.ns.cloudflare.com` |
